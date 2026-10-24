@@ -1,0 +1,32 @@
+
+# NiMa personal site (static files from /opt/nima, mounted at /srv/nima)
+nima-ai.ir {
+	root * /srv/nima
+	encode gzip
+	header {
+		X-Content-Type-Options "nosniff"
+		X-Frame-Options "SAMEORIGIN"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		Permissions-Policy "camera=(), microphone=(), geolocation=()"
+		-Server
+	}
+	@internal path /.git* /server /server/* /README.md
+	respond @internal 404
+	@html path / *.html */
+	header @html Cache-Control "no-cache"
+	@assets path /assets/*
+	header @assets Cache-Control "public, max-age=604800"
+	handle_errors {
+		@notfound expression {err.status_code} == 404
+		handle @notfound {
+			rewrite * /404.html
+			file_server
+		}
+		respond "{err.status_code} {err.status_text}"
+	}
+	file_server
+}
+
+www.nima-ai.ir {
+	redir https://nima-ai.ir{uri} permanent
+}
