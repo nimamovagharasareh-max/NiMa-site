@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://nima-ai.ir/sitemap.xml
