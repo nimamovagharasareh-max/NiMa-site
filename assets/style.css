@@ -106,7 +106,8 @@ section{padding:88px 0}
 .work-card .more{color:var(--gold);font-weight:700}
 .work-card .shot{background:linear-gradient(135deg,var(--royal),var(--ink));display:grid;place-items:center;padding:32px 24px 0;align-items:end}
 .work-card .shot img{width:230px;border-radius:22px 22px 0 0;box-shadow:0 -10px 40px rgba(0,0,0,.35)}
-@media (max-width:860px){.work-card{grid-template-columns:1fr}.work-card .body{padding:28px}}
+@media (max-width:860px){.work-card .shot{max-height:420px;overflow:hidden}.work-card{grid-template-columns:1fr}.work-card .body{padding:28px}}
+.work-list{display:grid;gap:20px}
 .soon{margin-top:20px;border:1.5px dashed var(--sand);border-radius:var(--radius);padding:22px 26px;color:var(--slate)}
 
 /* About */
